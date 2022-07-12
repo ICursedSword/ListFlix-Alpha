@@ -1,0 +1,41 @@
+﻿<Window x:Class="ListFlix.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListFlix"
+        mc:Ignorable="d"
+        Title="ListFlix" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+
+
+        <DataGrid x:Name="Tasks" FontSize="18" FontWeight="DemiBold"  AutoGenerateColumns="False" SelectionChanged="Tasks_SelectionChanged" Foreground= "#FFDB202C" BorderBrush="#FF1A1A1A" Grid.RowSpan="1" HorizontalGridLinesBrush="#FF414141" VerticalGridLinesBrush="#FF414141" HeadersVisibility="Column" FontFamily="Arial Black"  >
+
+
+
+
+            
+               
+
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#211f20" />
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.RowBackground>
+                <ImageBrush ImageSource="/bg.png"/>
+            </DataGrid.RowBackground>
+            <DataGrid.Background>
+                <ImageBrush ImageSource="/bg.png" TileMode="Tile"/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                
+                <DataGridTextColumn Binding="{Binding Path= CreatingDate  }" IsReadOnly="True" Header="Time of creation" Width="245" Foreground="#FFDB202C" FontFamily="Arial Black"    />
+                <DataGridCheckBoxColumn Binding="{Binding Path= IsDone, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Header="Finished" Width="150"  />
+                <DataGridTextColumn Binding="{Binding Path= Text}" IsReadOnly="False" Header="Task" Width="*" Foreground="#FFDB202C" FontFamily="Arial Black" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
